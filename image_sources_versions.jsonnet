@@ -1,7 +1,7 @@
 {
   _config+:: {
     versions+:: {
-      prometheus: 'v2.35.0',
+      prometheus: 'v2.36.2',
       alertmanager: 'v0.24.0',
       kubeStateMetrics: '1.9.6',
       kubeRbacProxy: 'v0.5.0',
@@ -9,7 +9,7 @@
       nodeExporter: 'v1.3.1',
       prometheusOperator: 'v0.40.0',
       prometheusAdapter: 'v0.8.4',
-      grafana: '8.5.0',
+      grafana: '9.0.2',
       configmapReloader: 'latest',
       prometheusConfigReloader: 'v0.40.0',
       armExporter: 'latest',
