@@ -2,14 +2,13 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    app.kubernetes.io/name: node-exporter
-    app.kubernetes.io/version: v1.3.1
-  name: node-exporter
+    app: arm-exporter
+  name: arm-exporter
   namespace: monitoring
 spec:
   endpoints:
   - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
-    interval: 15s
+    interval: 30s
     port: https
     relabelings:
     - action: replace
@@ -21,7 +20,10 @@ spec:
     scheme: https
     tlsConfig:
       insecureSkipVerify: true
-  jobLabel: app.kubernetes.io/name
+  jobLabel: arm-exporter-exporter
+  namespaceSelector:
+    matchNames:
+    - monitoring
   selector:
     matchLabels:
-      app.kubernetes.io/name: node-exporter
+      k8s-app: arm-exporter

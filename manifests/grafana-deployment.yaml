@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - env: []
-        image: grafana/grafana:7.0.3
+        image: grafana/grafana:8.5.0
         name: grafana
         ports:
         - containerPort: 3000
@@ -118,6 +118,9 @@ spec:
         - mountPath: /grafana-dashboard-definitions/0/statefulset
           name: grafana-dashboard-statefulset
           readOnly: false
+        - mountPath: /grafana-dashboard-definitions/0/traefik-dashboard
+          name: grafana-dashboard-traefik-dashboard
+          readOnly: false
         - mountPath: /grafana-dashboard-definitions/0/workload-total
           name: grafana-dashboard-workload-total
           readOnly: false
@@ -125,7 +128,7 @@ spec:
           name: grafana-config
           readOnly: false
       nodeSelector:
-        beta.kubernetes.io/os: linux
+        kubernetes.io/os: linux
       securityContext:
         runAsNonRoot: true
         runAsUser: 65534
@@ -214,6 +217,9 @@ spec:
       - configMap:
           name: grafana-dashboard-statefulset
         name: grafana-dashboard-statefulset
+      - configMap:
+          name: grafana-dashboard-traefik-dashboard
+        name: grafana-dashboard-traefik-dashboard
       - configMap:
           name: grafana-dashboard-workload-total
         name: grafana-dashboard-workload-total
