@@ -9,7 +9,7 @@
       nodeExporter: 'v1.3.1',
       prometheusOperator: 'v0.40.0',
       prometheusAdapter: 'v0.8.4',
-      grafana: '9.0.2',
+      grafana: '8.2.7',
       configmapReloader: 'latest',
       prometheusConfigReloader: 'v0.40.0',
       armExporter: 'latest',
